@@ -1,4 +1,5 @@
 defmodule ConcurrentTree do
+  use Application
   @moduledoc """
   Documentation for ConcurrentTree.
   """
@@ -12,7 +13,7 @@ defmodule ConcurrentTree do
       :world
 
   """
-  def hello do
-    :world
+  def start(_type, _args) do
+    ConcurrentTree.Supervisor.start_link([2])
   end
 end

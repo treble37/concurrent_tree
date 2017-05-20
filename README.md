@@ -1,6 +1,6 @@
 # ConcurrentTree
 
-**TODO: Add description**
+This is a proving ground to test all the concepts I'm learning in Elixir - OTP, supervision, ets, etc.
 
 ## Installation
 
