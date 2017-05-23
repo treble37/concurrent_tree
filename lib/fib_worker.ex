@@ -1,4 +1,5 @@
 defmodule FibWorker do
+  require EtsCache
   use GenServer
 
   def start_link(args) do
@@ -11,6 +12,8 @@ defmodule FibWorker do
   end
 
   def handle_call({:compute, n}, _from, state) do
-    {:reply, Fibonacci.fib(n), state}
+    fib_val = Fibonacci.fib(n)
+    EtsCache.write(:fibonacci, n, fib_val)
+    {:reply, fib_val, state}
   end
 end

@@ -10,7 +10,7 @@ defmodule ConcurrentTree.Supervisor do
   def start_link(args), do: Supervisor.start_link(__MODULE__, [args], name: __MODULE__)
   def init(args) do
     children = [
-      worker(FibWorker, [args], restart: :temporary)
+      worker(FibWorker, [args], restart: :permanent)
     ]
     supervise(children, strategy: :one_for_one)
   end

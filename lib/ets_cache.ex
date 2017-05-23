@@ -5,8 +5,12 @@ defmodule EtsCache do
   end
 
   def read(table, key) do
-    {_, value} = :ets.lookup(table, key)
-    value
+    case :ets.lookup(table, key) do
+      [{_, value}] ->
+        value
+      _ ->
+        []
+    end
   end
 
   defp find_or_create_table(true, table_name) do
