@@ -2,6 +2,11 @@
 
 This is a proving ground to test all the concepts I'm learning in Elixir - OTP, supervision, ets, etc.
 
+## Feature Checklist
+
+* Add ets cache for storing numbers on worker computation [done]
+* Add CLI interface to fire up multiple workers to do multiple Fibonacci computations
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
