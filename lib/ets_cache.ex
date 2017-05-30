@@ -2,14 +2,16 @@ defmodule EtsCache do
   def write(table_name, key, value) do
     find_or_create_table(no_table?(table_name), table_name)
     :ets.insert(table_name, {key, value})
+    read(table_name, key)
   end
 
-  def read(table, key) do
-    case :ets.lookup(table, key) do
+  def read(table_name, key) do
+    find_or_create_table(no_table?(table_name), table_name)
+    case :ets.lookup(table_name, key) do
       [{_, value}] ->
         value
       _ ->
-        []
+        nil
     end
   end
 

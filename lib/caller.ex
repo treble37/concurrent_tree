@@ -1,5 +1,6 @@
 defmodule Fib.Caller do
   # this is a "CLI" like module to call each worker to do a Fibonacci computation
+  # Fib.Caller.compute1(3)
   def compute1(n) do
     pid = Process.whereis(:FibWorker1)
     GenServer.call(:FibWorker1, {:compute, n})
