@@ -4,7 +4,7 @@ defmodule FibWorker do
 
   def start_link(args) do
     IO.inspect args
-    GenServer.start_link(__MODULE__, :ok, [name: __MODULE__])
+    GenServer.start_link(__MODULE__, :ok, [name: args[:name]])
   end
 
   def compute(n) do
