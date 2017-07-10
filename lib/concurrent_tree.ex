@@ -5,6 +5,6 @@ defmodule ConcurrentTree do
   """
 
   def start(_type, _args) do
-    ConcurrentTree.Supervisor.start_link([2])
+    ConcurrentTree.Supervisor.start_link(2)
   end
 end
